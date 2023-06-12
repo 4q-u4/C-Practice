@@ -133,3 +133,25 @@ int main() {
     
 return 0;
 }
+
+// Exercise 5 : Functions 
+
+//Write a function int getNumber (int low, int high) that takes 2 ints as arguments (low and high) 
+// and reads and returns number from keyboard where this number is between low and high
+
+#include <stdio.h>
+
+int getNumber(int low, int high) {
+    int range = high - low + 1;
+    int number = low + (range/2);
+    return number;
+}
+
+int main() {
+    int low, high;
+    printf("Enter two integers: ");
+    scanf("%d %d", &low, &high);
+    int number = getNumber(low, high);
+    printf("Number: %d\n", number);
+    return 0;
+}

@@ -1,23 +1,17 @@
 #include <stdio.h>
-
-int getMinimum (int a, int b, int c) {
-    int min;
-    if( a < b && a < c) {
-        min = a;
-    }else if (b < a && b < c) {
-        min = b;
-    }else {
-        min = c;
-    }
-    return min;
+int getAverage (int a, int b, int c) {
+    int average;
+    int sum = a + b + c;
+    average = sum/3;
+    return average;
 }
 
 int main() {
-    int min;
     int a, b, c;
+    int average;
     printf("Enter three integers: ");
     scanf("%d %d %d", &a, &b, &c);
-    min = getMinimum(a, b, c);
-    printf("The minimum number is %d", min);
+    average = getAverage(a, b, c);
+    printf("The average is %d", average);
     return 0;
 }

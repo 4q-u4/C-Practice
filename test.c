@@ -1,33 +1,19 @@
 #include <stdio.h>
 
-int isArmstrong(int n) {
-    int sum = 0;
-    int temp = n;
-
-    while (temp > 0) {
-        int rem = temp % 10;
-        sum += rem * rem * rem;
-        temp /= 10;
+ int getNum(int N) {
+    if (N % 2 == 0) {
+        printf("%d is Even", N);
+    }
+  else {
+    printf("%d is odd", N);
+  }  
     }
 
-    if (sum == n) {
-        return 1;
+    int main () {
+        int N;
+        printf("Enter a number: ");
+        scanf("%d", &N);
+        getNum(N);
+
+        return 0;
     }
-
-    return 0;
-}
-
-int main() {
-    int n;
-    printf("Enter a number: ");
-    scanf("%d", &n);
-
-    if (isArmstrong(n)) {
-        printf("%d is an Armstrong number.", n);
-        return 1;  // indicating the number is an Armstrong number
-    } else {
-       printf("%d is not an Armstrong number.", n);
-        return 0;  // indicating the number is not an Armstrong number
-    }
-    return 0;
-}

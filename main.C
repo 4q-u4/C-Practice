@@ -181,26 +181,162 @@ int isPrime(int n){
 
 #include <stdio.h>
 
-int isArmstrong(int n){
+int isArmstrong(int n) {
     int sum = 0;
-    while(n > 0){
-        int rem = n % 10;
+    int temp = n;
+
+    while (temp > 0) {
+        int rem = temp % 10;
         sum += rem * rem * rem;
-        n /= 10;
-        }
-        if (sum == n){
-            return 1;
-            }
-            return 0;
+        temp /= 10;
+    }
+
+    if (sum == n) {
+        return 1;
+    }
+
+    return 0;
 }
 
 int main() {
     int n;
     printf("Enter a number: ");
     scanf("%d", &n);
-    if (isArmstrong(n)){
-        return 1;
-    }else
+
+    if (isArmstrong(n)) {
+        printf("%d is an Armstrong number.", n);
+        return 1;  // indicating the number is an Armstrong number
+    } else {
+       printf("%d is not an Armstrong number.", n);
+        return 0;  // indicating the number is not an Armstrong number
+    }
+    return 0;
+}
+
+// Exercisde 8 : Function + String
+// Write Function to reverse string
+
+#include <stdio.h>
+#include <string.h>
+
+void reverseString(char* str) {
+    int length = strlen(str);
+    int i, j;
+    char temp;
+
+    for (i = 0, j = length - 1; i < j; i++, j--) {
+        temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+    }
+}
+
+int main() {
+    char str[] = "Hello, World!";
+    printf("Original string: %s\n", str);
+
+    reverseString(str);
+
+    printf("Reversed string: %s\n", str);
 
     return 0;
+}
+
+// Exercise 9 : Odd Even
+ // Write a fucntion getNum that takes one integer as argument and returns if even or odd
+
+ #include <stdio.h>
+
+ int getNum(int N) {
+    if (N % 2 == 0) {
+        printf("%d is Even", N);
+    }
+  else {
+    printf("%d is odd", N);
+  }  
+    }
+
+    int main () {
+        int N;
+        printf("Enter a number: ");
+        scanf("%d", &N);
+        getNum(N);
+
+        return 0;
+    }
+
+
+// Exercise 10 : Palindrome
+
+// Write a function that takes a string as argument and returns true if the string is a palindrome
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+bool is_palindrome(const char* str) {
+    int length = strlen(str);
+
+    for (int i = 0; i < length / 2; i++) {
+        if (str[i] != str[length - 1 - i]) {
+            return false;  // Characters don't match, not a palindrome
+        }
+    }
+
+    return true;  // All characters matched, it is a palindrome
+}
+
+int main() {
+    const char* palindrome1 = "racecar";
+    const char* palindrome2 = "level";
+    const char* non_palindrome = "hello";
+
+    if (is_palindrome(palindrome1)) {
+        printf("%s is a palindrome.\n", palindrome1);  // Output: racecar is a palindrome.
+    } else {
+        printf("%s is not a palindrome.\n", palindrome1);
+    }
+
+    return 0;
+}
+
+// exercise : max Value Array
+
+#include <stdio.h>
+
+int get_maximum_value(int arr[], int size) {
+    if (size == 0) {
+        return -1;  // Return -1 if the array is empty
+    } else {
+        int max_value = arr[0];  // Assume the first element is the maximum
+
+        // Iterate through the array and update max_value if a larger value is found
+        for (int i = 1; i < size; i++) {
+            if (arr[i] > max_value) {
+                max_value = arr[i];
+            }
+        }
+
+        return max_value;
+    }
+}
+
+
+// exercise : min value Array
+
+int get_minimum_value(int arr[], int size) {
+    if (size == 0) {
+        return -1;  // Return -1 if the array is empty
+    } else {
+        int min_value = arr[0];  // Assume the first element is the minimum
+
+        // Iterate through the array and update min_value if a smaller value is found
+        for (int i = 1; i < size; i++) {
+            if (arr[i] < min_value) {
+                min_value = arr[i];
+            }
+        }
+
+        return min_value;
+    }
 }

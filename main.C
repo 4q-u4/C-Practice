@@ -155,3 +155,52 @@ int main() {
     printf("Number: %d\n", number);
     return 0;
 }
+
+// Exercise 6 : Functions 
+
+// Write a function isPrime that takes one int as argument and tells 1 if int is prime and 0 otherwise
+
+#include <stdio.h>
+
+int isPrime(int n){
+    if ( n <= 1){
+        return 0; // 1 or Less is not Prime
+    }
+
+    for(int i = 2; i*i <= n ; i++){
+        if (n % i == 0){
+            return 0; // number divisble by i , thus not prime
+    }
+
+    return 1; //number is prime
+}
+
+// Exercise 7 : Functions
+
+// Write a fucntion isArmstrong that takaes an int as an argument and returns 1 if int is Armstrong, otherwise 0
+
+#include <stdio.h>
+
+int isArmstrong(int n){
+    int sum = 0;
+    while(n > 0){
+        int rem = n % 10;
+        sum += rem * rem * rem;
+        n /= 10;
+        }
+        if (sum == n){
+            return 1;
+            }
+            return 0;
+}
+
+int main() {
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    if (isArmstrong(n)){
+        return 1;
+    }else
+
+    return 0;
+}

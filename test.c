@@ -1,7 +1,3 @@
-// Exercise 1 : Functions
-
-// Write a function getMaximum that takes three integers as arguments and returns largest one
-
 #include <stdio.h>
 
 int getMaximum(int a, int b, int c) {
